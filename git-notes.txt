@@ -1,0 +1,111 @@
+# Show what your global config is
+git config --list
+# or
+less ~/.gitconfig
+# Local config
+less .git/config
+
+# Put all files in the staging area ("index"). This action is called "staging".
+git add .
+# Stage all tracked, modified files
+git add --update
+
+# See which files are in staging area
+git status
+# See changes between the last commit and what is staged for a commit
+git diff --cached
+# See changes between the last commit and the working directory, regardless of whether or not they have been staged
+git diff HEAD
+# See the changes between the working directory and the staging area, i.e. what is changed but not staged for a commit
+git diff
+
+# Oops, we didn't want that in the staging area, but we still want to keep the modified copy.
+git reset HEAD myfile.txt
+# We want to undo (revert) local changes, erasing the changed file and going back to the last commit.
+git checkout myfile.txt
+
+# Commit files in staging area
+git commit
+# Commit files in staging area and leave a commit message
+git commit -m 'message'
+# Automatically commit and stage all modified files in directory, even if they haven't been staged.
+git commit -am 'message'
+# Show the commit history
+git log
+# Prettier commit history
+git log --graph
+
+# Show available branches
+git branch
+# Make a new branch
+git branch name_of_branch
+# Switch to a branch
+git checkout name_of_branch
+# Make a new branch and switch to it
+git checkout -b branch
+# Delete a branch
+git branch -d name_of_branch
+
+# Remove from git staging area and the working directory permanently.
+# If it's in an old commit, though, it will still be there after this.
+git rm myfile.txt
+# If you just want to remove it from the staging area and leave it in the working directory, use this instead:
+git rm --cached myfile.txt
+# Or you can remove all text files like this:
+git rm --cached \*.txt
+# Git will complain if you try to remove a file it doesn't know about. Use this to remove all files:
+git rm --cached --ignore-unmatch *
+
+# Setting up a remote repository on a server. Technically it doesn't have to end with .git, but it's less easily mistaken for a normal directory if you do.
+git init --bare tidier-pdfimages.git
+# Creates a folder tidier-pdfimages.git/ with the contents of .git/ in a normal repository
+# Done for now with the remote machine. Now just add a remote on your laptop (or whatever you want to push to the server with).
+
+#  Add a remote repository
+git remote add origin https://github.com/user/repository.git
+git remote add chloride ssh://nbeaver@chloride.phys.iit.edu:/home/nbeaver/git-repositories/tidier-pdfimages.git # absolute paths
+git remote add chloride nbeaver@chloride.phys.iit.edu:git-repositories/tidier-pdfimages.git # relative paths; you have to drop the leading ssh:// part
+
+# Push to a remote repository (in this case, push the master branch)
+git push -u origin master
+git push -u chloride master
+# Change the url for a remote repository
+git remote set-url origin "https://github.com/nbeaver/name-of-repo.git"
+# Show the url for a remote repository without logging in.
+git remote show -n origin
+# Show all about a remote repository without logging in.
+git remote show origin
+
+# List all files being tracked by the git repository
+git ls-tree --full-tree -r HEAD
+
+# Add a file even if it is listed in .gitignore.
+git add -f ignored-file
+
+# Simple merging, e.g. merge into master branch.
+git checkout master
+git merge my_branch_name
+
+# Merging a pull request
+git checkout my_branch
+# Pull from remote repository and branch
+git pull https://github.com/christopherdavidwhite/commutator-table.git master
+# Then checkout master and merge if it's good. Finally, push it back to the remote repository of choice, e.g.:
+git checkout master
+git merge christopherdavidwhite-master
+git push origin master
+
+# Easily sync to GitHub pages:
+http://brettterpstra.com/2012/09/26/github-tip-easily-sync-your-master-to-github-pages/
+
+# Make a repository via the command line (http://williamcotton.com/how-to-publish-open-source-codehttp://williamcotton.com/how-to-publish-open-source-codehttp://williamcotton.com/how-to-publish-open-source-code)
+curl -u 'williamcotton' https://api.github.com/user/repos -d '{"name":"RunLoop"}' 
+
+# Pulling from a remote repository.
+git clone https://github.com/nbeaver/commutator-table.git
+# Pulling over ssh. These both create a folder called 'tidier-pdfimages' with the repository inside; neither creates 'tidier-pdfimages.git' as a folder.
+git clone nbeaver@chloride.phys.iit.edu:git-repositories/tidier-pdfimages.git
+git clone nbeaver@chloride.phys.iit.edu:git-repositories/tidier-pdfimages
+
+# How to tell someone who just want to see your progress:
+# Just clone once and then pull.
