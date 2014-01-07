@@ -18,8 +18,13 @@ git diff --cached
 git diff HEAD
 # See the changes between the working directory and the staging area, i.e. what is changed but not staged for a commit
 git diff
+# See changes by word.
+git diff --word-diff
+# See changes by word and wrap long lines
+PAGER='' git diff --word-diff
 
 # Oops, we didn't want that in the staging area, but we still want to keep the modified copy.
+# (Basically the unstage command.)
 git reset HEAD myfile.txt
 # We want to undo (revert) local changes, erasing the changed file and going back to the last commit.
 git checkout myfile.txt
@@ -34,6 +39,10 @@ git commit -am 'message'
 git log
 # Prettier commit history
 git log --graph
+# Show commits, including the diff
+git log -p
+# Show all commit, but only the last two commits
+git log -p -2
 
 # Show available branches
 git branch
@@ -109,3 +118,8 @@ git clone nbeaver@chloride.phys.iit.edu:git-repositories/tidier-pdfimages
 
 # How to tell someone who just want to see your progress:
 # Just clone once and then pull.
+
+# Remove untracked files.
+git clean -f
+# Do a dry run first.
+git clean -fn
