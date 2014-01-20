@@ -87,6 +87,8 @@ git remote show origin
 
 # List all files being tracked by the git repository
 git ls-tree --full-tree -r HEAD
+# List just the 
+git ls-files
 
 # Add a file even if it is listed in .gitignore.
 git add -f ignored-file
