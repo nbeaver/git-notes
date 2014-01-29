@@ -43,6 +43,10 @@ git log --graph
 git log -p
 # Show all commit, but only the last two commits
 git log -p -2
+# Fix an incorrect commit message
+git commit --amend
+# You can also use -m, but the previous way brings up the previos text in your favorite editor.
+git commit --amend -m "Fixed message."
 
 # Show available branches
 git branch
@@ -54,6 +58,10 @@ git checkout name_of_branch
 git checkout -b branch
 # Delete a branch
 git branch -d name_of_branch
+
+# Rollback to an old commit while staying on the same branch.
+# https://stackoverflow.com/questions/2007662/rollback-to-an-old-commit-using-git
+git checkout [revision] .
 
 # Remove from git staging area and the working directory permanently.
 # If it's in an old commit, though, it will still be there after this.
