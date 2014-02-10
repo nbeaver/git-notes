@@ -133,3 +133,7 @@ git clone nbeaver@chloride.phys.iit.edu:git-repositories/tidier-pdfimages
 git clean -f
 # Do a dry run first.
 git clean -fn
+
+# Merge a single file in current branch from another
+# https://ochronus.com/git-tips-from-the-trenches/
+$ git checkout <OTHER_BRANCH> -- path/to/file
