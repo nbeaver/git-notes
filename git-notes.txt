@@ -22,6 +22,7 @@ git diff
 git diff --word-diff
 # See changes by word and wrap long lines
 PAGER='' git diff --word-diff
+# Or just press -S while viewing diff
 
 # Oops, we didn't want that in the staging area, but we still want to keep the modified copy.
 # (Basically the unstage command.)
@@ -93,9 +94,14 @@ git remote show -n origin
 # Show all about a remote repository without logging in.
 git remote show origin
 
-# List all files being tracked by the git repository
+# List existing remote repositories
+git remote
+git remote --verbose
+git remote -v
+
+# List all files ever tracked by the git repository
 git ls-tree --full-tree -r HEAD
-# List just the 
+# List just the files being tracked right now
 git ls-files
 
 # Add a file even if it is listed in .gitignore.
@@ -137,3 +143,10 @@ git clean -fn
 # Merge a single file in current branch from another
 # https://ochronus.com/git-tips-from-the-trenches/
 $ git checkout <OTHER_BRANCH> -- path/to/file
+
+# See a graphical diff with diffuse
+diffuse -m
+# See a word diff that suppresses common lines (useful for very long lines)
+git difftool --extcmd='wdiff -3'
+# Throw in a less pager
+git difftool --extcmd='wdiff -3la'
