@@ -44,10 +44,14 @@ git log --graph
 git log -p
 # Show all commit, but only the last two commits
 git log -p -2
+# Show git log, but only names of changed files
+git log --name-only
 # Fix an incorrect commit message
 git commit --amend
 # You can also use -m, but the previous way brings up the previos text in your favorite editor.
 git commit --amend -m "Fixed message."
+# Do a soft reset of last commit 
+git reset --soft HEAD~1
 
 # Show available branches
 git branch
@@ -88,6 +92,9 @@ git remote add chloride nbeaver@chloride.phys.iit.edu:git-repositories/tidier-pd
 git push -u origin master
 git push -u chloride master
 # Change the url for a remote repository
+# It is better to use SSH than https, since you won't have to log in every time, like this:
+git remote set-url origin "git@github.com:nbeaver/name-of-repo.git"
+# Not this:
 git remote set-url origin "https://github.com/nbeaver/name-of-repo.git"
 # Show the url for a remote repository without logging in.
 git remote show -n origin
@@ -146,7 +153,10 @@ $ git checkout <OTHER_BRANCH> -- path/to/file
 
 # See a graphical diff with diffuse
 diffuse -m
-# See a word diff that suppresses common lines (useful for very long lines)
+# See a word diff that suppresses common lines and words (useful for very long lines)
 git difftool --extcmd='wdiff -3'
 # Throw in a less pager
 git difftool --extcmd='wdiff -3la'
+# Note that using -S with less will wrap/unwrap lines
+# Diff character-by-character
+git diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
