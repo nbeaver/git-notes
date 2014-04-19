@@ -130,6 +130,16 @@ git push origin master
 # Easily sync to GitHub pages:
 http://brettterpstra.com/2012/09/26/github-tip-easily-sync-your-master-to-github-pages/
 
+# Making a new Github repository from the command line
+# http://stackoverflow.com/questions/2423777/is-it-possible-to-create-a-remote-repo-on-github-from-the-cli-without-ssh
+curl -u 'nbeaver' https://api.github.com/user/repos -d '{"name":"REPO"}'
+# Remember replace USER with your username and REPO with your repository/application name!
+git remote add origin git@github.com:nbeaver/REPO.git
+git push origin master
+# From Github's instructions
+git remote add origin git@github.com:nbeaver/pyCV.git
+git push -u origin master
+
 # Make a repository via the command line (http://williamcotton.com/how-to-publish-open-source-codehttp://williamcotton.com/how-to-publish-open-source-codehttp://williamcotton.com/how-to-publish-open-source-code)
 curl -u 'williamcotton' https://api.github.com/user/repos -d '{"name":"RunLoop"}' 
 
