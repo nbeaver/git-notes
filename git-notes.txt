@@ -174,3 +174,22 @@ git difftool --extcmd='wdiff -3la'
 # Note that using -S with less will wrap/unwrap lines
 # Diff character-by-character
 git diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
+
+# Get rid of a file from every commit in the current branch as well as deleting it from the current directory.
+git filter-branch --tree-filter 'rm -f passwords.txt' HEAD
+# Once you're sure you've done the right thing.
+rm -rf .git/refs/originals
+# Or, to get rid of this error message:
+# Cannot create a new backup.
+# A previous backup already exists in refs/original/
+# Force overwriting the backup with -f
+git filter-branch -f --tree-filter 'rm -f passwords.txt' HEAD
+# Get rid of a file from every commit in the entire repository as well as deleting it from the current directory.
+git filter-branch --all --tree-filter 'rm -f passwords.txt' HEAD
+# http://dalibornasevic.com/posts/2-permanently-remove-files-and-folders-from-a-git-repository
+
+# Now, thoroughly scrub the repo.
+git reflog expire --expire=now --all
+git gc --aggressive --prune=now
+git repack -A -d
+# http://stackoverflow.com/questions/10656794/why-do-large-files-still-exist-in-my-packfile-after-scrubbing-them-with-filter
