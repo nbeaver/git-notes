@@ -88,7 +88,9 @@ git init --bare tidier-pdfimages.git
 # Done for now with the remote machine. Now just add a remote on your laptop (or whatever you want to push to the server with).
 
 #  Add a remote repository
-git remote add origin https://github.com/user/repository.git
+git remote add origin git@github.com:user/repository.git # uses SSH, which is good since you can set up SSH keys instead of entering a password every time.
+git remote add origin git@github.com:nbeaver/custom-units.git # example
+git remote add origin https://github.com/user/repository.git # uses HTTPS, which will require entering a password a lot.
 git remote add chloride ssh://nbeaver@chloride.phys.iit.edu:/home/nbeaver/git-repositories/tidier-pdfimages.git # absolute paths
 git remote add chloride nbeaver@chloride.phys.iit.edu:git-repositories/tidier-pdfimages.git # relative paths; you have to drop the leading ssh:// part
 
