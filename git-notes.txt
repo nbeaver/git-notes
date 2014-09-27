@@ -9,6 +9,10 @@ less .git/config
 git add .
 # Stage all tracked, modified files
 git add --update
+# Add a file even if it is listed in .gitignore.
+git add -f ignored-file
+# Add parts of a file.
+git add -p myfile
 
 # See which files are in staging area
 git status
@@ -117,8 +121,6 @@ git ls-tree --full-tree -r HEAD
 # List just the files being tracked right now
 git ls-files
 
-# Add a file even if it is listed in .gitignore.
-git add -f ignored-file
 
 # Simple merging, e.g. merge into master branch.
 git checkout master
