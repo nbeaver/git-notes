@@ -192,6 +192,9 @@ git filter-branch -f --tree-filter 'rm -f passwords.txt' HEAD
 git filter-branch --tree-filter 'rm -f passwords.txt' HEAD
 # http://dalibornasevic.com/posts/2-permanently-remove-files-and-folders-from-a-git-repository
 # Get rid of every file except one, and prune the commits that didn't affect that file.
+# Warning: may not work if filenames have spaces or special characters.
+# Warning: will get rid of your .gitignore.
+# TODO: check if this works when files have been renamed.
 git filter-branch --prune-empty --index-filter 'git ls-tree -z --name-only --full-tree $GIT_COMMIT | grep -zv "^git-notes.txt$" | xargs -0 git rm --cached -r' -- --all
 # http://stackoverflow.com/questions/2797191/how-to-split-a-git-repository-while-preserving-subdirectories
 
