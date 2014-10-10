@@ -191,9 +191,13 @@ git filter-branch -f --tree-filter 'rm -f passwords.txt' HEAD
 # Get rid of a file from every commit in the entire repository as well as deleting it from the current directory.
 git filter-branch --all --tree-filter 'rm -f passwords.txt' HEAD
 # http://dalibornasevic.com/posts/2-permanently-remove-files-and-folders-from-a-git-repository
+# Get rid of every file except one, and prune the commits that didn't affect that file.
+git filter-branch --prune-empty --index-filter 'git ls-tree -z --name-only --full-tree $GIT_COMMIT | grep -zv "^git-notes.txt$" | xargs -0 git rm --cached -r' -- --all
+# http://stackoverflow.com/questions/2797191/how-to-split-a-git-repository-while-preserving-subdirectories
 
 # Now, thoroughly scrub the repo.
 git reflog expire --expire=now --all
 git gc --aggressive --prune=now
 git repack -A -d
 # http://stackoverflow.com/questions/10656794/why-do-large-files-still-exist-in-my-packfile-after-scrubbing-them-with-filter
+
