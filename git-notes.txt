@@ -54,6 +54,9 @@ git log -p
 git log -p -2
 # Show git log, but only names of changed files
 git log --name-only
+# Do a case-insensitive pickaxe search on all commits for the word 'noodles'.
+git log -p -S noodles -i
+
 # Fix an incorrect commit message or commit.
 git commit --amend
 # You can also use -m, but the previous way brings up the previous commit message in your favorite editor.
