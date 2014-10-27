@@ -194,6 +194,7 @@ git filter-branch -f --tree-filter 'rm -f passwords.txt' HEAD
 # Get rid of a file from every commit in the entire repository as well as deleting it from the current directory.
 git filter-branch --tree-filter 'rm -f passwords.txt' HEAD
 # http://dalibornasevic.com/posts/2-permanently-remove-files-and-folders-from-a-git-repository
+
 # Get rid of every file except one, and prune the commits that didn't affect that file.
 # Warning: may not work if filenames have spaces or special characters.
 # Warning: will get rid of your .gitignore.
@@ -207,3 +208,6 @@ git gc --aggressive --prune=now
 git repack -A -d
 # http://stackoverflow.com/questions/10656794/why-do-large-files-still-exist-in-my-packfile-after-scrubbing-them-with-filter
 
+# Archive files
+git archive -o latest.zip HEAD
+# http://git-scm.com/docs/git-archive#_examples
