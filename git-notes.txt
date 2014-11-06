@@ -211,3 +211,25 @@ git repack -A -d
 # Archive files
 git archive -o latest.zip HEAD
 # http://git-scm.com/docs/git-archive#_examples
+
+# Notes on concatenating git repositories.
+# http://ben.straubnet.net/post/939181602/git-grafting-repositories
+# First, got to more recent repo.
+# In this case, the old repo is in ``../old``.
+git fetch ../old master:ancient_history
+# Note the SHA1 hashes of the oldest on master and the latest on ancient_history.
+git rev-list master | tail -n 1
+git rev-parse ancient_history
+# Now add it to grafts, using >> so it doesn't overwrite exisiting grafts.
+echo d7737bffdad86dc05bbade271a9c16f8f912d3c6 463d0401a3f34bd381c456c6166e514564289ab2 >> .git/info/grafts
+# Next, convert the grafts into "real history" so git clone works.
+# Put the commit history into a file called ``export``.
+git fast-export --all > ../export
+# Make a new folder to put the shiny new repo into.
+mkdir ../nuevo-complete
+cd ../nuevo-complete
+# Initialize the repo and import the history.
+git init
+git fast-import < ../export
+# I also had to do a git checkout at this point for some reason.
+git checkout
