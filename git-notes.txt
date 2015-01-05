@@ -52,8 +52,18 @@ git log --graph
 git log -p
 # Show all commit, but only the last two commits
 git log -p -2
-# Show git log, but only names of changed files
-git log --name-only
+# Show git log, including names of files and if they were modified, added, or deleted.
+git log --name-status
+# A = Added
+# C = Copied
+# D = Deleted
+# M = Modified
+# R = Renamed
+# T = have their Type (i.e. regular file, symlink, submodule, ...) changed
+# U = Unmerged
+# X = Unknown
+# B = have had their pairing Broken
+
 # Do a case-insensitive pickaxe search on all commits for the word 'noodles'.
 git log -p -S noodles -i
 
@@ -61,7 +71,7 @@ git log -p -S noodles -i
 git commit --amend
 # You can also use -m, but the previous way brings up the previous commit message in your favorite editor.
 git commit --amend -m "Fixed message."
-# Do a soft reset of last commit 
+# Do a soft reset of last commit
 git reset --soft HEAD~1
 
 # Show available branches
@@ -119,6 +129,9 @@ git remote
 git remote --verbose
 git remote -v
 
+# Remove an existing remote called "origin"
+git remote rm origin
+
 # List all files ever tracked by the git repository
 git ls-tree --full-tree -r HEAD
 # List just the files being tracked right now
@@ -151,8 +164,9 @@ git push origin master
 git remote add origin git@github.com:nbeaver/pyCV.git
 git push -u origin master
 
-# Make a repository via the command line (http://williamcotton.com/how-to-publish-open-source-codehttp://williamcotton.com/how-to-publish-open-source-codehttp://williamcotton.com/how-to-publish-open-source-code)
-curl -u 'williamcotton' https://api.github.com/user/repos -d '{"name":"RunLoop"}' 
+# Make a repository via the command line
+curl -u 'williamcotton' https://api.github.com/user/repos -d '{"name":"RunLoop"}'
+# http://williamcotton.com/how-to-publish-open-source-code
 
 # Pulling from a remote repository.
 git clone https://github.com/nbeaver/commutator-table.git
