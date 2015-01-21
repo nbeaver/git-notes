@@ -1,7 +1,16 @@
-# Show what your global config is
-git config --list
+# Just in case someone thinks this should be run as a shell command,
+# exit immediately.
+exit 1
+# Show what your global is.
+git config --global --list
 # or
 less ~/.gitconfig
+
+# Modify global config, e.g. change default git push to send only the current branch.
+git config --global push.default current
+
+# Show what local config of current repo.
+git config --list
 # Local config
 less .git/config
 
@@ -69,19 +78,30 @@ git log -p -S noodles -i
 
 # Fix an incorrect commit message or commit.
 git commit --amend
+
 # You can also use -m, but the previous way brings up the previous commit message in your favorite editor.
 git commit --amend -m "Fixed message."
+
 # Do a soft reset of last commit
 git reset --soft HEAD~1
 
 # Show available branches
 git branch
+
+# Name of current branch.
+git rev-parse --abbrev-ref HEAD
+git symbolic-ref --short HEAD
+# http://stackoverflow.com/questions/6245570/how-to-get-current-branch-name-in-git
+
 # Make a new branch
 git branch name_of_branch
+
 # Switch to a branch
 git checkout name_of_branch
+
 # Make a new branch and switch to it
 git checkout -b branch
+
 # Delete a branch
 git branch -d name_of_branch
 
@@ -141,6 +161,9 @@ git ls-files
 # Simple merging, e.g. merge into master branch.
 git checkout master
 git merge my_branch_name
+# Pull in only some of the files.
+git checkout my_branch_name -- ~/path/to/myfile.txt
+# http://stackoverflow.com/questions/610208/how-to-retrieve-a-single-file-from-specific-revision-in-git/610315#610315
 
 # Merging a pull request
 git checkout my_branch
@@ -195,6 +218,10 @@ git difftool --extcmd='wdiff -3la'
 # Note that using -S with less will wrap/unwrap lines
 # Diff character-by-character
 git diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
+# Use meld
+git difftool --tool=meld myfile.txt
+# Use diffuse
+git difftool -t diffuse myfile.txt
 
 # Get rid of a file from every commit in the current branch as well as deleting it from the current directory.
 git filter-branch --tree-filter 'rm -f passwords.txt' HEAD
