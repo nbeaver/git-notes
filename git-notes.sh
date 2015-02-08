@@ -118,6 +118,8 @@ git rm --cached myfile.txt
 git rm --cached \*.txt
 # Git will complain if you try to remove a file it doesn't know about. Use this to remove all files:
 git rm --cached --ignore-unmatch *
+# Or this:
+git rm --cached
 
 # Setting up a remote repository on a server. Technically it doesn't have to end with .git, but it's less easily mistaken for a normal directory if you do.
 git init --bare tidier-pdfimages.git
@@ -274,3 +276,10 @@ git init
 git fast-import < ../export
 # I also had to do a git checkout at this point for some reason.
 git checkout
+
+# Ignore all vim swap file (.swp, .swo, .swn...)
+.*.sw?
+# https://stackoverflow.com/questions/4824188/git-ignore-vim-temporary-files
+
+# https://help.github.com/articles/ignoring-files/
+git config --global core.excludesfile ~/.gitignore_global
