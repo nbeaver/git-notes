@@ -20,7 +20,7 @@ git add .
 git add --update
 # Add a file even if it is listed in .gitignore.
 git add -f ignored-file
-# Add parts of a file.
+# Add parts (a.k.a. "chunks") of a file.
 git add -p myfile
 
 # See which files are in staging area
