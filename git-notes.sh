@@ -283,3 +283,9 @@ git checkout
 
 # https://help.github.com/articles/ignoring-files/
 git config --global core.excludesfile ~/.gitignore_global
+
+# Check the repo for errors.
+git fsck
+# If you've got a lot of dangling blobs and are impatient:
+git gc --prune="0 days"
+# https://stackoverflow.com/questions/9955713/git-dangling-blobs
