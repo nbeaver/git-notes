@@ -209,7 +209,7 @@ git clean -fn
 
 # Merge a single file in current branch from another
 # https://ochronus.com/git-tips-from-the-trenches/
-$ git checkout <OTHER_BRANCH> -- path/to/file
+git checkout <OTHER_BRANCH> -- path/to/file
 
 # See a graphical diff with diffuse
 diffuse -m
@@ -289,3 +289,25 @@ git fsck
 # If you've got a lot of dangling blobs and are impatient:
 git gc --prune="0 days"
 # https://stackoverflow.com/questions/9955713/git-dangling-blobs
+
+# Show SHA1 of last commit.
+git rev-parse HEAD
+# Verify it's correct.
+git rev-parse --verify HEAD
+# Show shortened version.
+git rev-parse --short HEAD
+# http://stackoverflow.com/questions/949314/how-to-retrieve-the-hash-for-the-current-commit-in-git
+# http://stackoverflow.com/questions/5694389/get-the-short-git-version-hash
+
+# Show version string and part of SHA1.
+git describe --tags
+# http://stackoverflow.com/questions/5694389/get-the-short-git-version-hash
+
+# Simple workflow without collaborators.
+# On branch master.
+git checkout -b develop
+# ... do work, make commits.
+git checkout master
+git merge develop
+git checkout develop
+# http://nvie.com/posts/a-successful-git-branching-model/
