@@ -311,3 +311,16 @@ git checkout master
 git merge develop
 git checkout develop
 # http://nvie.com/posts/a-successful-git-branching-model/
+
+# Make a GitHub pages website.
+# Starting from master branch:
+git checkout -b gh-pages
+git remote add origin git@github.com:nbeaver/user-supplied-ad-preferences.git
+git push -u origin gh-pages
+git branch -d master
+xdg-open http://nbeaver.github.io/user-supplied-ad-preferences
+# If you want to keep the master branch,
+# set Github's default branch to be "gh-pages".
+# https://pages.github.com/
+# http://www.xanthir.com/b4Zz0
+
