@@ -323,4 +323,17 @@ xdg-open http://nbeaver.github.io/user-supplied-ad-preferences
 # set Github's default branch to be "gh-pages".
 # https://pages.github.com/
 # http://www.xanthir.com/b4Zz0
+# Otherwise, remove the master branch.
 
+
+# Show oldest commit (probably).
+git rev-list HEAD | tail -n 1
+
+# Show root commit(s).
+git rev-list --max-parents=0 HEAD
+
+# Show date of a commit in a standard format.
+git show -s --format=%ci 144feb8bb29a4e1031cf188403a614c9f4ee8838
+
+# Combine the two.
+git show -s --format=%ci "$(git rev-list --max-parents=0 HEAD)"
