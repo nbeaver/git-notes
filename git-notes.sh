@@ -337,3 +337,20 @@ git show -s --format=%ci 144feb8bb29a4e1031cf188403a614c9f4ee8838
 
 # Combine the two.
 git show -s --format=%ci "$(git rev-list --max-parents=0 HEAD)"
+
+# Updating to the latest version of the code.
+git checkout master
+git fetch
+git merge --ff-only
+
+git clone git@github.com:nbeaver/numpy.git
+cd numpy
+git remote add upstream git://github.com/numpy/numpy.git
+git fetch upstream
+git merge upstream/master --ff-only
+git checkout -b my-new-feature upstream/master
+# Edit the files at this point.
+git add my_new_file
+git commit -am 'ENH: some message'
+# Now push the branch to your own Github repo.
+git push origin
