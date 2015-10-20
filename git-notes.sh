@@ -154,6 +154,10 @@ git remote -v
 # Remove an existing remote called "origin"
 git remote rm origin
 
+# Set the default remote repository and branch to push to.
+git push -u <remote_name> <local_branch_name>
+# https://stackoverflow.com/questions/18801147/changing-the-default-git-remote-push-to-default
+
 # List all files ever tracked by the git repository
 git ls-tree --full-tree -r HEAD
 # List just the files being tracked right now
