@@ -358,3 +358,14 @@ git add my_new_file
 git commit -am 'ENH: some message'
 # Now push the branch to your own Github repo.
 git push origin
+
+# Undelete a branch.
+# First, find the revision.
+# Running branch -d will show the deleted revision, for example, or
+git reflog
+# will show the commit messages.
+# Now check it out.
+git checkout bb9c6d1
+# Now make the branch.
+git branch name-of-recovered-branch
+# https://stackoverflow.com/questions/16398501/how-to-undelete-a-branch-on-github
