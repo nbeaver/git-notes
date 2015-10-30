@@ -73,6 +73,11 @@ git log --name-status
 # X = Unknown
 # B = have had their pairing Broken
 
+# Commit history of a particular file, including renames.
+git log --follow myfile.txt
+# Show lines added and name changes as well.
+git log --follow --numstat myfile.txt
+
 # Do a case-insensitive pickaxe search on all commits for the word 'noodles'.
 git log -p -S noodles -i
 
@@ -241,6 +246,9 @@ git filter-branch -f --tree-filter 'rm -f passwords.txt' HEAD
 # Get rid of a file from every commit in the entire repository as well as deleting it from the current directory.
 git filter-branch --tree-filter 'rm -f passwords.txt' HEAD
 # http://dalibornasevic.com/posts/2-permanently-remove-files-and-folders-from-a-git-repository
+
+# Find a particular file by filename.
+git rev-list --objects --all | grep -i passwords.txt
 
 # Get rid of every file except one, and prune the commits that didn't affect that file.
 # Warning: may not work if filenames have spaces or special characters.
