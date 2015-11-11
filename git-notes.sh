@@ -73,6 +73,9 @@ git log --name-status
 # X = Unknown
 # B = have had their pairing Broken
 
+# Show how many commits have affected each file.
+git log --name-only --pretty=format: | sort | uniq -c | less
+
 # Commit history of a particular file, including renames.
 git log --follow myfile.txt
 # Show lines added and name changes as well.
