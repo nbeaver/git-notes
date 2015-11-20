@@ -380,3 +380,44 @@ git checkout bb9c6d1
 # Now make the branch.
 git branch name-of-recovered-branch
 # https://stackoverflow.com/questions/16398501/how-to-undelete-a-branch-on-github
+
+# 2015-11-18
+# Got this error:
+# $ git status
+# error: object file .git/objects/55/29a651ad640ad5ff9997aa8204bbec66334877 is empty
+# error: object file .git/objects/55/29a651ad640ad5ff9997aa8204bbec66334877 is empty
+# fatal: loose object 5529a651ad640ad5ff9997aa8204bbec66334877 (stored in .git/objects/55/29a651ad640ad5ff9997aa8204bbec66334877) is corrupt
+# First, make a backup.
+cd ..
+cp -r repo ~/backup-repo-folder/
+# Now delete broken objects.
+find .git/objects/ -type f -empty -delete
+# Now how is the repo?
+# $ git status
+# fatal: bad object HEAD
+# Alright, let's see what should be the head.
+tail -n 2 .git/logs/refs/heads/master
+# Looks promising.
+# 2566184d3db3cc5847ce8478a0887792b68946fa 7a5783acaf9ebe17ed1add42b6e2e4400786d07d Nathaniel Beaver <nathanielmbeaver@gmail.com> 1447262088 -0600	commit: Snapshot.
+# 7a5783acaf9ebe17ed1add42b6e2e4400786d07d 5529a651ad640ad5ff9997aa8204bbec66334877 Nathaniel Beaver <nathanielmbeaver@gmail.com> 1447262470 -0600	commit: Snapshot.
+git show 5529a651ad640ad5ff9997aa8204bbec66334877
+# fatal: bad object 5529a651ad640ad5ff9997aa8204bbec66334877
+git show 7a5783acaf9ebe17ed1add42b6e2e4400786d07d
+# fatal: bad object 7a5783acaf9ebe17ed1add42b6e2e4400786d07d
+git show 2566184d3db3cc5847ce8478a0887792b68946fa
+# This one works. So let's make that the new head.
+git update-ref HEAD 2566184d3db3cc5847ce8478a0887792b68946fa
+# Now, just to be safe.
+git fsck --full
+# error: c81db952b38acb645b6f6f58eac787ab40c130a8: invalid sha1 pointer in cache-tree
+# Hm, I guess we'll have to reset the repo.
+rm .git/index
+git reset
+# Now fsck again.
+git fsck --full
+# Looks ok. So we just lost a commit, but it could be worse.
+# http://stackoverflow.com/a/12371337
+# https://stackoverflow.com/questions/11706215/how-to-fix-git-error-object-file-is-empty
+# http://kos.gd/posts/git-adventures-loose-object-is-corrupted/
+# http://vincesalvino.blogspot.com/2013/08/git-empty-files-corrupt-objects-and.html
+# https://stackoverflow.com/questions/4254389/git-corrupt-loose-object
