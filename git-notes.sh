@@ -117,6 +117,19 @@ git branch -d name_of_branch
 # https://stackoverflow.com/questions/2007662/rollback-to-an-old-commit-using-git
 git checkout [revision] .
 
+# If you do this:
+git checkout [revision]
+# you may end up in a detached head state.
+#     You are in 'detached HEAD' state. You can look around, make experimental
+#     changes and commit them, and you can discard any commits you make in this
+#     state without impacting any branches by performing another checkout.
+# So get back to the previous setttings by running checkout of the branch you were on.
+git checkout master
+# https://stackoverflow.com/questions/10228760/fix-a-git-detached-head
+# http://gitolite.com/detached-head.html
+# http://alblue.bandlem.com/2011/08/git-tip-of-week-detached-heads.html
+# http://learnwebtutorials.com/you-are-in-detached-head-state-how-fix
+
 # Remove from git staging area and the working directory permanently.
 # If it's in an old commit, though, it will still be there after this.
 git rm myfile.txt
@@ -421,3 +434,11 @@ git fsck --full
 # http://kos.gd/posts/git-adventures-loose-object-is-corrupted/
 # http://vincesalvino.blogspot.com/2013/08/git-empty-files-corrupt-objects-and.html
 # https://stackoverflow.com/questions/4254389/git-corrupt-loose-object
+
+# On remote machine.
+mkdir ~/git-repos/bash.git
+cd ~/git-repos/bash.git
+git --bare init
+# On local machine.
+git remote add chloride nbeaver@chloride.phys.iit.edu:git-repos/bash.git
+git push -u chloride master
