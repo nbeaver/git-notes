@@ -279,6 +279,16 @@ git gc --aggressive --prune=now
 git repack -A -d
 # http://stackoverflow.com/questions/10656794/why-do-large-files-still-exist-in-my-packfile-after-scrubbing-them-with-filter
 
+# Splitting off a subdirectory into its own repository.
+cd parent-repo
+git subtree split -P subdirectory -b newbranch # no trailing /
+cd ..
+mkdir newrepo
+cd newrepo
+git init
+git pull ../parent-repo newbranch
+# https://stackoverflow.com/questions/359424/detach-subdirectory-into-separate-git-repository/17864475#17864475
+
 # Archive files
 git archive -o latest.zip HEAD
 # http://git-scm.com/docs/git-archive#_examples
