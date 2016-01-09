@@ -293,14 +293,25 @@ git pull ../parent-repo newbranch
 git archive -o latest.zip HEAD
 # http://git-scm.com/docs/git-archive#_examples
 
-# Notes on concatenating git repositories.
+# Notes on how to concatenate/collate/splice/graft/stitch/tack together
+# git repositories, one having old history and one having new.
 # http://ben.straubnet.net/post/939181602/git-grafting-repositories
 # First, got to more recent repo.
 # In this case, the old repo is in ``../old``.
 git fetch ../old master:ancient_history
+# Output:
+#     warning: no common commits
+#     remote: Counting objects: 11, done.
+#     remote: Compressing objects: 100% (6/6), done.
+#     remote: Total 11 (delta 1), reused 11 (delta 1)
+#     Unpacking objects: 100% (11/11), done.
+#     From ../old
+#      * [new branch]      master     -> ancient_history
 # Note the SHA1 hashes of the oldest on master and the latest on ancient_history.
 git rev-list master | tail -n 1
+# d7737bffdad86dc05bbade271a9c16f8f912d3c6
 git rev-parse ancient_history
+# 463d0401a3f34bd381c456c6166e514564289ab2
 # Now add it to grafts, using >> so it doesn't overwrite exisiting grafts.
 echo d7737bffdad86dc05bbade271a9c16f8f912d3c6 463d0401a3f34bd381c456c6166e514564289ab2 >> .git/info/grafts
 # Next, convert the grafts into "real history" so git clone works.
