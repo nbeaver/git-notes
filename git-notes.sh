@@ -75,6 +75,8 @@ git log --name-status
 
 # Show how many commits have affected each file.
 git log --name-only --pretty=format: | sort | uniq -c | less
+# See the files with most commits at the top.
+git log --name-only --pretty=format: | sort | uniq -c | sort -nr | less
 
 # Commit history of a particular file, including renames.
 git log --follow myfile.txt
