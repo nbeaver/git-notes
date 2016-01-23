@@ -257,8 +257,9 @@ git filter-branch --tree-filter 'rm -f passwords.txt' HEAD
 # Once you're sure you've done the right thing.
 rm -rf .git/refs/originals
 # Or, to get rid of this error message:
-# Cannot create a new backup.
-# A previous backup already exists in refs/original/
+#     Cannot create a new backup.
+#     A previous backup already exists in refs/original/
+
 # Force overwriting the backup with -f
 git filter-branch -f --tree-filter 'rm -f passwords.txt' HEAD
 # Get rid of a file from every commit in the entire repository as well as deleting it from the current directory.
