@@ -266,6 +266,10 @@ git filter-branch -f --tree-filter 'rm -f passwords.txt' HEAD
 git filter-branch --tree-filter 'rm -f passwords.txt' HEAD
 # http://dalibornasevic.com/posts/2-permanently-remove-files-and-folders-from-a-git-repository
 
+# Without deleting the file from the current directory.
+git filter-branch --tree-filter 'rm  passwords.txt'
+# https://stackoverflow.com/questions/1143796/remove-a-file-from-a-git-repository-without-deleting-it-from-the-local-filesyste
+
 # Find a particular file by filename.
 git rev-list --objects --all | grep -i passwords.txt
 
