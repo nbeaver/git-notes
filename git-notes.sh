@@ -23,6 +23,9 @@ git add -f ignored-file
 # Add parts (a.k.a. "chunks") of a file.
 git add -p myfile
 
+# Unstage those chunks interactively.
+get reset -p
+
 # See which files are in staging area
 git status
 # See short summary of status, useful for scripts
