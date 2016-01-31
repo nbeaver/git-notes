@@ -473,3 +473,8 @@ git --bare init
 # On local machine.
 git remote add chloride nbeaver@chloride.phys.iit.edu:git-repos/bash.git
 git push -u chloride master
+
+# Create patch from a single commit.
+git format-patch -1 ed8977a09bf2480bfb5c26b9ecc7d37cb60b9e39
+# Create patch from two different commits.
+git diff OLDSHA1 NEWSHA1
