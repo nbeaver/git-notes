@@ -95,7 +95,8 @@ git commit --amend
 # You can also use -m, but the previous way brings up the previous commit message in your favorite editor.
 git commit --amend -m "Fixed message."
 
-# Do a soft reset of last commit
+# Do a soft reset of last commit;
+# useful if e.g. your branch and origin/master have diverged.
 git reset --soft HEAD~1
 
 # Show available branches
