@@ -398,6 +398,9 @@ git show -s --format=%ci 144feb8bb29a4e1031cf188403a614c9f4ee8838
 # Combine the two.
 git show -s --format=%ci "$(git rev-list --max-parents=0 HEAD)"
 
+# Get old version of a file.
+git show 6de5ab0b566d9915ef2bae66e2a205efc336316b:readme.rst > old.rst
+
 # Updating to the latest version of the code.
 git checkout master
 git fetch
