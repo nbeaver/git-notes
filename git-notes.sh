@@ -372,6 +372,15 @@ git merge develop
 git checkout develop
 # http://nvie.com/posts/a-successful-git-branching-model/
 
+# Merge conflicts, e.g.
+# CONFLICT (modify/delete): TODO.rst deleted in develop and modified in HEAD. Version HEAD of TODO.rst left in tree.
+# Automatic merge failed; fix conflicts and then commit the result.
+git rebase upstream/master
+git rebase --skip
+git push -f origin
+# https://quaxio.com/git_rebase_conflicts_with_deleted_files/
+# http://softwarecave.org/2014/03/03/git-how-to-resolve-merge-conflicts/
+
 # Make a GitHub pages website.
 # Starting from master branch:
 git checkout -b gh-pages
