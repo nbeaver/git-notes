@@ -388,6 +388,8 @@ git push -f origin
 # Starting from master branch:
 git checkout -b gh-pages
 git remote add origin git@github.com:nbeaver/user-supplied-ad-preferences.git
+# if the remote is already added, use this instead.
+git push --set-upstream origin gh-pages
 git push -u origin gh-pages
 git branch -d master
 xdg-open http://nbeaver.github.io/user-supplied-ad-preferences
