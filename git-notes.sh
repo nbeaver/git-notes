@@ -50,6 +50,9 @@ git reset HEAD myfile.txt
 # We want to undo (revert) local changes, erasing the changed file and going back to the last commit.
 git checkout myfile.txt
 
+# Checkout an entire directory of files.
+git checkout HEAD -- /path/to/dir
+
 # Commit files in staging area
 git commit
 # Commit files in staging area and leave a commit message
