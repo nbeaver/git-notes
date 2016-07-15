@@ -44,6 +44,9 @@ git diff --word-diff
 PAGER='' git diff --word-diff
 # Or just press -S while viewing diff
 
+# Grep for just the changed lines.
+git diff --word-diff | grep -F '[-[ ]-]{+[*]+}'
+
 # Oops, we didn't want that in the staging area, but we still want to keep the modified copy.
 # (Basically the unstage command.)
 git reset HEAD myfile.txt
@@ -90,7 +93,10 @@ git log --follow myfile.txt
 git log --follow --numstat myfile.txt
 
 # Do a case-insensitive pickaxe search on all commits for the word 'noodles'.
-git log -p -S noodles -i
+git log -p -S 'noodles' -i
+# case-insensitive, find all commits where word 'rhubarb' was added or removed (pickaxe search)
+git grep -i 'rhubarb' "$(git rev-list --all)"
+
 
 # Fix an incorrect commit message or commit.
 git commit --amend
@@ -388,6 +394,7 @@ git push -f origin
 # Starting from master branch:
 git checkout -b gh-pages
 git remote add origin git@github.com:nbeaver/user-supplied-ad-preferences.git
+git push -u origin gh-pages
 # if the remote is already added, use this instead.
 git push --set-upstream origin gh-pages
 git push -u origin gh-pages
@@ -496,3 +503,6 @@ git push -u chloride master
 git format-patch -1 ed8977a09bf2480bfb5c26b9ecc7d37cb60b9e39
 # Create patch from two different commits.
 git diff OLDSHA1 NEWSHA1
+
+# Clone an SVN repo like a git repo.
+git svn clone -s http://svn.csrri.iit.edu/mx/ mx/
