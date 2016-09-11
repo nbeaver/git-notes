@@ -293,11 +293,21 @@ git rev-list --objects --all | grep -i passwords.txt
 git filter-branch --prune-empty --index-filter 'git ls-tree -z --name-only --full-tree $GIT_COMMIT | grep -zv "^git-notes.txt$" | xargs -0 git rm --cached -r' -- --all
 # http://stackoverflow.com/questions/2797191/how-to-split-a-git-repository-while-preserving-subdirectories
 
+# More than one file.
+git filter-branch --prune-empty --index-filter 'git ls-tree -z --name-only --full-tree $GIT_COMMIT | grep -zv "^git-notes.txt$\|^other-notes.txt$" | xargs -0 git rm --cached -r' -- --all
+
+# Better way to do multiple files.
+git filter-branch --index-filter 'git read-tree --empty; git reset $GIT_COMMIT -- git-notes.txt other-notes.txt' -- --all -- git-notes.txt other-notes.txt
+# http://stackoverflow.com/a/37037151/1608986
+# http://stackoverflow.com/questions/7375528/how-to-extract-one-file-with-commit-history-from-a-git-repo-with-index-filter
+
+
 # Now, thoroughly scrub the repo.
 git reflog expire --expire=now --all
 git gc --aggressive --prune=now
 git repack -A -d
 # http://stackoverflow.com/questions/10656794/why-do-large-files-still-exist-in-my-packfile-after-scrubbing-them-with-filter
+git reflog expire --expire=now --all && git gc --aggressive --prune=now && git repack -A -d
 
 # Splitting off a subdirectory into its own repository.
 cd parent-repo
@@ -506,3 +516,8 @@ git diff OLDSHA1 NEWSHA1
 
 # Clone an SVN repo like a git repo.
 git svn clone -s http://svn.csrri.iit.edu/mx/ mx/
+# Pull in new differences.
+git svn rebase
+
+# Add a config option when cloning a git repo.
+git -c transfer.fsckObjects=false clone https://github.com/antirez/redis.git
