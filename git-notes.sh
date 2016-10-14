@@ -125,6 +125,10 @@ git checkout name_of_branch
 # Make a new branch and switch to it
 git checkout -b branch
 
+# Rename current branch.
+git branch -m new_name_of_branch
+# http://stackoverflow.com/questions/6591213/how-to-rename-a-local-git-branch
+
 # Delete a branch
 git branch -d name_of_branch
 
@@ -521,3 +525,11 @@ git svn rebase
 
 # Add a config option when cloning a git repo.
 git -c transfer.fsckObjects=false clone https://github.com/antirez/redis.git
+
+
+# On branch master
+#
+# It took 2.17 seconds to enumerate untracked files. 'status -uno'
+# may speed it up, but you have to be careful not to forget to add
+# new files yourself (see 'git help status').
+# nothing to commit, working directory clean
