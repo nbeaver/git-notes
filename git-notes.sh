@@ -104,6 +104,10 @@ git commit --amend
 # You can also use -m, but the previous way brings up the previous commit message in your favorite editor.
 git commit --amend -m "Fixed message."
 
+# Update timestamp as well as amending.
+git commit --amend --date="$(date -R)"
+# http://stackoverflow.com/questions/9110310/update-git-commit-author-date-when-amending
+
 # Do a soft reset (undo) of last commit;
 # useful if e.g. your branch and origin/master have diverged.
 git reset --soft HEAD~1
