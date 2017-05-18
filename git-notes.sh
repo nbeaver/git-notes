@@ -215,6 +215,19 @@ git merge my_branch_name
 git checkout my_branch_name -- ~/path/to/myfile.txt
 # http://stackoverflow.com/questions/610208/how-to-retrieve-a-single-file-from-specific-revision-in-git/610315#610315
 
+# Creating a pull request.
+# Fork the repo on Github.
+# Clone it.
+git clone git@github.com:nbeaver/pqRand.git
+# Make a new branch.
+git checkout -b nbeaver
+# Make some edits and commit.
+git commit -m "Fix Makefile."
+# Push to remote repository.
+git push --set-upstream origin nbeaver
+# http://stackoverflow.com/questions/16493396/git-master-branch-has-no-upstream-branch
+# http://stackoverflow.com/questions/14680711/how-to-do-a-github-pull-request
+
 # Merging a pull request
 git checkout my_branch
 # Pull from remote repository and branch
@@ -284,8 +297,9 @@ rm -rf .git/refs/originals
 # Force overwriting the backup with -f
 git filter-branch -f --tree-filter 'rm -f passwords.txt' HEAD
 # Get rid of a file from every commit in the entire repository as well as deleting it from the current directory.
-git filter-branch --tree-filter 'rm -f passwords.txt' HEAD
+git filter-branch --tree-filter 'rm -f passwords.txt' -f --prune-empty HEAD
 # http://dalibornasevic.com/posts/2-permanently-remove-files-and-folders-from-a-git-repository
+# http://stackoverflow.com/questions/5324799/git-remove-commits-with-empty-changeset-using-filter-branch
 
 # Without deleting the file from the current directory.
 git filter-branch --tree-filter 'rm  passwords.txt'
@@ -330,6 +344,7 @@ git pull ../parent-repo newbranch
 # Archive files
 git archive -o latest.zip HEAD
 # http://git-scm.com/docs/git-archive#_examples
+git archive HEAD -o project.zip
 
 # Notes on how to concatenate/collate/splice/graft/stitch/tack together
 # git repositories, one having old history and one having new.
@@ -444,6 +459,12 @@ git show 6de5ab0b566d9915ef2bae66e2a205efc336316b:readme.rst > old.rst
 git checkout master
 git fetch
 git merge --ff-only
+
+# Updating to upstream repo.
+git fetch upstream
+git checkout master
+git merge upstream/master
+# https://help.github.com/articles/syncing-a-fork/
 
 git clone git@github.com:nbeaver/numpy.git
 cd numpy
