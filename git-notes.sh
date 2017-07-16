@@ -297,6 +297,7 @@ rm -rf .git/refs/originals
 # Force overwriting the backup with -f
 git filter-branch -f --tree-filter 'rm -f passwords.txt' HEAD
 # Get rid of a file from every commit in the entire repository as well as deleting it from the current directory.
+
 git filter-branch --tree-filter 'rm -f passwords.txt' -f --prune-empty HEAD
 # http://dalibornasevic.com/posts/2-permanently-remove-files-and-folders-from-a-git-repository
 # http://stackoverflow.com/questions/5324799/git-remove-commits-with-empty-changeset-using-filter-branch
