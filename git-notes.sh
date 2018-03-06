@@ -213,7 +213,7 @@ git checkout master
 git merge my_branch_name
 # Pull in only some of the files.
 git checkout my_branch_name -- ~/path/to/myfile.txt
-# http://stackoverflow.com/questions/610208/how-to-retrieve-a-single-file-from-specific-revision-in-git/610315#610315
+# https://stackoverflow.com/questions/610208/how-to-retrieve-a-single-file-from-specific-revision-in-git/610315#610315
 
 # Creating a pull request.
 # Fork the repo on Github.
@@ -559,3 +559,8 @@ git -c transfer.fsckObjects=false clone https://github.com/antirez/redis.git
 # may speed it up, but you have to be careful not to forget to add
 # new files yourself (see 'git help status').
 # nothing to commit, working directory clean
+
+# Retrieve a deleted file.
+git rev-list -n 1 HEAD -- text-files/myfile.txt
+# Example: f02aef0659e918a68f4ef3030b6f32e43bc230c8
+git checkout f02aef^ -- text-files/myfile.txt
