@@ -127,7 +127,7 @@ git branch name_of_branch
 git checkout name_of_branch
 
 # Make a new branch and switch to it
-git checkout -b branch
+git checkout -b my-branch-name
 
 # Rename current branch.
 git branch -m new_name_of_branch
@@ -539,6 +539,9 @@ git --bare init
 git remote add chloride nbeaver@chloride.phys.iit.edu:git-repos/bash.git
 git push -u chloride master
 
+# Remove remote.
+git remote remove upstream
+
 # Create patch from a single commit.
 git format-patch -1 ed8977a09bf2480bfb5c26b9ecc7d37cb60b9e39
 # Create patch from two different commits.
@@ -564,3 +567,9 @@ git -c transfer.fsckObjects=false clone https://github.com/antirez/redis.git
 git rev-list -n 1 HEAD -- text-files/myfile.txt
 # Example: f02aef0659e918a68f4ef3030b6f32e43bc230c8
 git checkout f02aef^ -- text-files/myfile.txt
+
+# Make a new loca bare repo to push to.
+cd myrepo/
+git clone --bare . ~/path/to/myrepo.git
+git remote add --mirror=push backup ~/path/to/myrepo.git
+git push backup
