@@ -568,8 +568,11 @@ git rev-list -n 1 HEAD -- text-files/myfile.txt
 # Example: f02aef0659e918a68f4ef3030b6f32e43bc230c8
 git checkout f02aef^ -- text-files/myfile.txt
 
-# Make a new loca bare repo to push to.
+# Make a new local bare repo to push to.
 cd myrepo/
-git clone --bare . ~/path/to/myrepo.git
-git remote add --mirror=push backup ~/path/to/myrepo.git
-git push backup
+git clone --mirror . /path/to/bare-repo.git
+# Use a name like 'backup' or 'archive'.
+git remote add --mirror=push my-remote-name /path/to/bare-repo.git
+git push --mirror my-remote-name
+# Get the repo back like it was.
+git clone --origin my-remote-name /path/to/bare-repo.git
