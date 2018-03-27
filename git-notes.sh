@@ -458,13 +458,14 @@ git show 6de5ab0b566d9915ef2bae66e2a205efc336316b:readme.rst > old.rst
 
 # Updating to the latest version of the code.
 git checkout master
-git fetch
+git fetch # or git fetch upstream
 git merge --ff-only
 
 # Updating to upstream repo.
 git fetch upstream
 git checkout master
 git merge upstream/master
+# https://help.github.com/articles/configuring-a-remote-for-a-fork/
 # https://help.github.com/articles/syncing-a-fork/
 
 git clone git@github.com:nbeaver/numpy.git
