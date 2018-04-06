@@ -47,6 +47,9 @@ PAGER='' git diff --word-diff
 # Grep for just the changed lines.
 git diff --word-diff | grep -F '[-[ ]-]{+[*]+}'
 
+# Get patch to submit.
+git diff master..fix-typo
+
 # Oops, we didn't want that in the staging area, but we still want to keep the modified copy.
 # (Basically the unstage command.)
 git reset HEAD myfile.txt
@@ -111,6 +114,12 @@ git commit --amend --date="$(date -R)"
 # Do a soft reset (undo) of last commit;
 # useful if e.g. your branch and origin/master have diverged.
 git reset --soft HEAD~1
+
+# Move commits on master to a different branch.
+git branch newbranch    # save current state in a new branch, but stay on master branch.
+git reset --hard HEAD~1 # get rid of last commit on current branch
+git checkout newbranch  # move to new branch
+# https://stackoverflow.com/questions/3719068/move-commits-from-master-onto-a-branch-using-git
 
 # Show available branches
 git branch
@@ -228,6 +237,10 @@ git push --set-upstream origin nbeaver
 # http://stackoverflow.com/questions/16493396/git-master-branch-has-no-upstream-branch
 # http://stackoverflow.com/questions/14680711/how-to-do-a-github-pull-request
 
+# Update the master branch.
+git checkout master
+git pull
+
 # Merging a pull request
 git checkout my_branch
 # Pull from remote repository and branch
@@ -254,9 +267,9 @@ git push -u origin master
 curl -u 'williamcotton' https://api.github.com/user/repos -d '{"name":"RunLoop"}'
 # http://williamcotton.com/how-to-publish-open-source-code
 
-# Pulling from a remote repository.
+# Cloning from a remote repository.
 git clone https://github.com/nbeaver/commutator-table.git
-# Pulling over ssh. These both create a folder called 'tidier-pdfimages' with the repository inside; neither creates 'tidier-pdfimages.git' as a folder.
+# Cloning over ssh. These both create a folder called 'tidier-pdfimages' with the repository inside; neither creates 'tidier-pdfimages.git' as a folder.
 git clone nbeaver@chloride.phys.iit.edu:git-repositories/tidier-pdfimages.git
 git clone nbeaver@chloride.phys.iit.edu:git-repositories/tidier-pdfimages
 
