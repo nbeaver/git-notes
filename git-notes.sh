@@ -129,6 +129,11 @@ git rev-parse --abbrev-ref HEAD
 git symbolic-ref --short HEAD
 # http://stackoverflow.com/questions/6245570/how-to-get-current-branch-name-in-git
 
+# SHA-1 hash of current commit
+git rev-parse HEAD
+git rev-parse --verify HEAD
+# https://stackoverflow.com/questions/949314/how-to-retrieve-the-hash-for-the-current-commit-in-git
+
 # Make a new branch
 git branch name_of_branch
 
