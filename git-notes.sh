@@ -50,6 +50,10 @@ git diff --word-diff | grep -F '[-[ ]-]{+[*]+}'
 # Get patch to submit.
 git diff master..fix-typo
 
+# Generate a patch from an existing commit.
+git format-patch -1 0d3084344f48b4594045f97ecfd16e6dc51ccc3c
+# https://stackoverflow.com/questions/6658313/generate-a-git-patch-for-a-specific-commit
+
 # Oops, we didn't want that in the staging area, but we still want to keep the modified copy.
 # (Basically the unstage command.)
 git reset HEAD myfile.txt
@@ -239,6 +243,7 @@ git checkout -b nbeaver
 git commit -m "Fix Makefile."
 # Push to remote repository.
 git push --set-upstream origin nbeaver
+# Next, go to github and make the pull request.
 # http://stackoverflow.com/questions/16493396/git-master-branch-has-no-upstream-branch
 # http://stackoverflow.com/questions/14680711/how-to-do-a-github-pull-request
 
