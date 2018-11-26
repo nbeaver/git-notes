@@ -188,6 +188,10 @@ git init --bare tidier-pdfimages.git
 # Creates a folder tidier-pdfimages.git/ with the contents of .git/ in a normal repository
 # Done for now with the remote machine. Now just add a remote on your laptop (or whatever you want to push to the server with).
 
+# github's "push an existing repository from the command line"
+git remote add origin git@github.com:my_user_name/my_project_name.git
+git push -u origin master
+
 #  Add a remote repository
 git remote add origin git@github.com:user/repository.git # uses SSH, which is good since you can set up SSH keys instead of entering a password every time.
 git remote add origin git@github.com:nbeaver/custom-units.git # example
