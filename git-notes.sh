@@ -379,6 +379,7 @@ git archive HEAD -o project.zip
 # http://ben.straubnet.net/post/939181602/git-grafting-repositories
 # First, got to more recent repo.
 # In this case, the old repo is in ``../old``.
+cd new
 git fetch ../old master:ancient_history
 # Output:
 #     warning: no common commits
