@@ -50,6 +50,9 @@ git diff --word-diff | grep -F '[-[ ]-]{+[*]+}'
 # Get patch to submit.
 git diff master..fix-typo
 
+# Or just diff master against the current branch:
+git diff master..
+
 # Generate a patch from an existing commit.
 git format-patch -1 0d3084344f48b4594045f97ecfd16e6dc51ccc3c
 # https://stackoverflow.com/questions/6658313/generate-a-git-patch-for-a-specific-commit
