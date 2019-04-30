@@ -267,6 +267,8 @@ git commit -m "Did more stuff."
 # When ready, merge it back into master.
 git checkout master
 git merge --no-ff myfeature
+# Don't need this branch anymore.
+git branch -d myfeature
 # https://nvie.com/posts/a-successful-git-branching-model/
 
 # Merging a pull request
