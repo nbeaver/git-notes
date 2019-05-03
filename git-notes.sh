@@ -258,7 +258,7 @@ git push --set-upstream origin nbeaver
 git checkout master
 git pull
 
-
+# Merging a good branch.
 git checkout myfeature
 # Do stuff.
 git commit -m "Did stuff."
