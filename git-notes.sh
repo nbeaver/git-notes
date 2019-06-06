@@ -303,6 +303,19 @@ git clone https://github.com/nbeaver/commutator-table.git
 git clone nbeaver@chloride.phys.iit.edu:git-repositories/tidier-pdfimages.git
 git clone nbeaver@chloride.phys.iit.edu:git-repositories/tidier-pdfimages
 
+# Clone a repository that fails fsck.
+git clone 'https://git.zx2c4.com/cgit'
+# Cloning into 'cgit'...
+# remote: Enumerating objects: 6986, done.
+# remote: Counting objects: 100% (6986/6986), done.
+# remote: Compressing objects: 100% (2689/2689), done.
+# error: bad config line 5 in blob .gitmodulesB | 763.00 KiB/s
+# error: object 51dd1eff1edc663674df9ab85d2786a40f7ae3a5: gitmodulesParse: could not parse gitmodules blob
+# fatal: fsck error in packed object
+# fatal: index-pack failed
+git clone --config transfer.fsckobjects=false --config receive.fsckobjects=false --config fetch.fsckobjects=false 'https://git.zx2c4.com/cgit'
+# https://github.com/vim-pandoc/vim-markdownfootnotes/blob/master/README.markdown
+
 # How to tell someone who just want to see your progress:
 # Just clone once and then pull.
 
