@@ -316,7 +316,7 @@ git clone 'https://git.zx2c4.com/cgit'
 git clone --config transfer.fsckobjects=false --config receive.fsckobjects=false --config fetch.fsckobjects=false 'https://git.zx2c4.com/cgit'
 # https://github.com/vim-pandoc/vim-markdownfootnotes/blob/master/README.markdown
 
-# How to tell someone who just want to see your progress:
+# How to tell someone who just wants to see your progress:
 # Just clone once and then pull.
 
 # Remove untracked files.
