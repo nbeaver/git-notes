@@ -205,11 +205,15 @@ git remote add chloride nbeaver@chloride.phys.iit.edu:git-repositories/tidier-pd
 # Push to a remote repository (in this case, push the master branch)
 git push -u origin master
 git push -u chloride master
+
 # Change the url for a remote repository
 # It is better to use SSH than https, since you won't have to log in every time, like this:
 git remote set-url origin "git@github.com:nbeaver/name-of-repo.git"
 # Not this:
 git remote set-url origin "https://github.com/nbeaver/name-of-repo.git"
+# Useful for messages like:
+# "fatal: remote origin already exists."
+
 # Show the url for a remote repository without logging in.
 git remote show -n origin
 # Show all about a remote repository without logging in.
@@ -248,8 +252,15 @@ git clone git@github.com:nbeaver/pqRand.git
 git checkout -b nbeaver
 # Make some edits and commit.
 git commit -m "Fix Makefile."
+
 # Push to remote repository.
 git push --set-upstream origin nbeaver
+# Useful for messages like:
+# fatal: The current branch suppress-space has no upstream branch.
+# To push the current branch and set the remote as upstream, use
+# 
+#     git push --set-upstream origin suppress-space
+
 # Next, go to github and make the pull request.
 # http://stackoverflow.com/questions/16493396/git-master-branch-has-no-upstream-branch
 # http://stackoverflow.com/questions/14680711/how-to-do-a-github-pull-request
