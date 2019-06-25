@@ -634,3 +634,10 @@ git remote add --mirror=push my-remote-name /path/to/bare-repo.git
 git push --mirror my-remote-name
 # Get the repo back like it was.
 git clone --origin my-remote-name /path/to/bare-repo.git
+
+git tag -a v0.1 1a1212dd38a70f2ccc3690ce477f80c254256b7c
+git tag --annotate v0.1 1a1212dd38a70f2ccc3690ce477f80c254256b7c
+# "Make an unsigned, annotated tag object"
+
+git push --tags
+# Push the tags.
