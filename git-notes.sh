@@ -110,6 +110,7 @@ git grep -i 'rhubarb' "$(git rev-list --all)"
 
 # Fix an incorrect commit message or commit.
 git commit --amend
+# https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/
 
 # You can also use -m, but the previous way brings up the previous commit message in your favorite editor.
 git commit --amend -m "Fixed message."
@@ -655,3 +656,6 @@ git push --tags
 
 # Things to try in a repo with missing files / commits
 cat ../fresh/.git/objects/pack/pack-*.pack | git unpack-objects
+
+# TODO: summarize commands from here:
+# https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/
