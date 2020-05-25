@@ -470,10 +470,12 @@ git rev-parse --verify HEAD
 git rev-parse --short HEAD
 # http://stackoverflow.com/questions/949314/how-to-retrieve-the-hash-for-the-current-commit-in-git
 # http://stackoverflow.com/questions/5694389/get-the-short-git-version-hash
+# https://stackoverflow.com/questions/5724513/in-git-how-do-i-figure-out-what-my-current-revision-is
 
 # Show version string and part of SHA1.
 git describe --tags
 # http://stackoverflow.com/questions/5694389/get-the-short-git-version-hash
+# https://stackoverflow.com/questions/5724513/in-git-how-do-i-figure-out-what-my-current-revision-is
 
 # Simple workflow without collaborators.
 # On branch master.
