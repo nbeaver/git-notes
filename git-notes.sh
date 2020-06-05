@@ -107,6 +107,8 @@ git log -p -S 'noodles' -i
 # case-insensitive, find all commits where word 'rhubarb' was added or removed (pickaxe search)
 git grep -i 'rhubarb' "$(git rev-list --all)"
 
+# Show only tagged commits, such as releases.
+git log --no-walk --tags
 
 # Fix an incorrect commit message or commit.
 git commit --amend
