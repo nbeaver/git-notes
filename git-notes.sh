@@ -503,12 +503,14 @@ git checkout -b gh-pages
 git remote add origin git@github.com:nbeaver/user-supplied-ad-preferences.git
 git push -u origin gh-pages
 # if the remote is already added, use this instead.
+git checkout -b gh-pages
 git push --set-upstream origin gh-pages
 git push -u origin gh-pages
 git branch -d master
 xdg-open http://nbeaver.github.io/user-supplied-ad-preferences
 # If you want to keep the master branch,
 # set Github's default branch to be "gh-pages".
+# Use "Settings" -> "Branches" -> "Default Branch"
 # https://pages.github.com/
 # http://www.xanthir.com/b4Zz0
 # Otherwise, remove the master branch.
