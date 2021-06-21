@@ -230,6 +230,11 @@ git remote -v
 # Remove an existing remote called "origin"
 git remote rm origin
 
+# Rename an existing remote called "origin" to "github"
+git remote rename origin github
+# https://stackoverflow.com/questions/33840617/how-do-i-rename-a-git-remote
+# https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes#_renaming_and_removing_remotes
+
 # Set the default remote repository and branch to push to.
 git push -u <remote_name> <local_branch_name>
 # https://stackoverflow.com/questions/18801147/changing-the-default-git-remote-push-to-default
