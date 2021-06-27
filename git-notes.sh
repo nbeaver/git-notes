@@ -671,5 +671,9 @@ git push --tags
 # Things to try in a repo with missing files / commits
 cat ../fresh/.git/objects/pack/pack-*.pack | git unpack-objects
 
+# Rename master to main.
+git branch -m master main
+# https://www.git-tower.com/learn/git/faq/git-rename-master-to-main/
+
 # TODO: summarize commands from here:
 # https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/
