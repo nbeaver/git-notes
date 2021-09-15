@@ -665,6 +665,9 @@ git tag -a v0.1 1a1212dd38a70f2ccc3690ce477f80c254256b7c
 git tag --annotate v0.1 1a1212dd38a70f2ccc3690ce477f80c254256b7c
 # "Make an unsigned, annotated tag object"
 
+# Check which tags contain a commit.
+git tag --contains 1a1212dd38a70f2ccc3690ce477f80c254256b7c
+
 git push --tags
 # Push the tags.
 
