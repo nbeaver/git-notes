@@ -209,6 +209,12 @@ git remote add chloride nbeaver@chloride.phys.iit.edu:git-repositories/tidier-pd
 git push -u origin master
 git push -u chloride master
 
+# Push to multiple remotes.
+git remote add all 'git@gitlab.com:nbeaver/vim-config.git'
+git remote set-url --add --push all 'git@gitlab.com:nbeaver/vim-config.git'
+git remote set-url --add --push all 'git@github.com:nbeaver/vim-config.git'
+git push all
+
 # Change the url for a remote repository
 # It is better to use SSH than https, since you won't have to log in every time, like this:
 git remote set-url origin "git@github.com:nbeaver/name-of-repo.git"
