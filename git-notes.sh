@@ -209,11 +209,15 @@ git remote add chloride nbeaver@chloride.phys.iit.edu:git-repositories/tidier-pd
 git push -u origin master
 git push -u chloride master
 
-# Push to multiple remotes.
+# Push to multiple remotes with a single command.
 git remote add all 'git@gitlab.com:nbeaver/vim-config.git'
 git remote set-url --add --push all 'git@gitlab.com:nbeaver/vim-config.git'
 git remote set-url --add --push all 'git@github.com:nbeaver/vim-config.git'
 git push all
+# https://stackoverflow.com/questions/849308/pull-push-from-multiple-remote-locations
+# https://stackoverflow.com/questions/14290113/git-pushing-code-to-two-remotes
+# https://leighmcculloch.com/posts/git-push-to-multiple-remotes-at-once/
+# https://jigarius.com/blog/multiple-git-remote-repositories
 
 # Change the url for a remote repository
 # It is better to use SSH than https, since you won't have to log in every time, like this:
