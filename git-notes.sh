@@ -417,6 +417,14 @@ git repack -A -d
 # http://stackoverflow.com/questions/10656794/why-do-large-files-still-exist-in-my-packfile-after-scrubbing-them-with-filter
 git reflog expire --expire=now --all && git gc --aggressive --prune=now && git repack -A -d
 
+# This seems to work better?
+git filter-branch --index-filter 'git rm --cached --ignore-unmatch passwords.txt'
+rm -rf '.git/refs/original/'
+git reflog expire --expire=now --all
+git repack -A -d
+git prune --verbose
+# https://stackoverflow.com/questions/2164581/remove-file-from-git-repository-history
+
 # Splitting off a subdirectory into its own repository.
 cd parent-repo
 git subtree split -P subdirectory -b newbranch # no trailing /
