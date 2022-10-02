@@ -219,6 +219,10 @@ git push all
 # https://leighmcculloch.com/posts/git-push-to-multiple-remotes-at-once/
 # https://jigarius.com/blog/multiple-git-remote-repositories
 
+# Set 'all' as the default remote.
+git config remote.pushDefault all
+# https://stackoverflow.com/questions/55632243/set-default-push-target
+
 # Change the url for a remote repository
 # It is better to use SSH than https, since you won't have to log in every time, like this:
 git remote set-url origin "git@github.com:nbeaver/name-of-repo.git"
