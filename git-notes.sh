@@ -1,3 +1,4 @@
+#! /usr/bin/env false
 # Just in case someone thinks this should be run as a shell command,
 # exit immediately.
 exit 1
