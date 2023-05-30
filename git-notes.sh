@@ -190,6 +190,13 @@ git rm --cached --ignore-unmatch *
 # Or this:
 git rm --cached
 
+# Remove all files previously tracked but now ignored.
+git rm -r --cached .
+git add .
+# https://stackoverflow.com/questions/1139762/ignore-files-that-have-already-been-committed-to-a-git-repository
+# https://stackoverflow.com/questions/1274057/how-do-i-make-git-forget-about-a-file-that-was-tracked-but-is-now-in-gitignore
+# https://stackoverflow.com/questions/1139762/ignore-files-that-have-already-been-committed-to-a-git-repository
+
 # Setting up a remote repository on a server. Technically it doesn't have to end with .git, but it's less easily mistaken for a normal directory if you do.
 git init --bare tidier-pdfimages.git
 # Creates a folder tidier-pdfimages.git/ with the contents of .git/ in a normal repository
