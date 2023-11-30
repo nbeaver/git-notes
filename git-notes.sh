@@ -322,7 +322,7 @@ git merge christopherdavidwhite-master
 git push origin master
 
 # Easily sync to GitHub pages:
-http://brettterpstra.com/2012/09/26/github-tip-easily-sync-your-master-to-github-pages/
+# http://brettterpstra.com/2012/09/26/github-tip-easily-sync-your-master-to-github-pages/
 
 # Making a new Github repository from the command line
 # http://stackoverflow.com/questions/2423777/is-it-possible-to-create-a-remote-repo-on-github-from-the-cli-without-ssh
