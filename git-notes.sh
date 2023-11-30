@@ -710,3 +710,8 @@ git branch -m master main
 
 # TODO: summarize commands from here:
 # https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/
+
+# Ignore mode changes
+git config core.fileMode false
+# Ignore file modes globally.
+git config --global core.fileMode false
