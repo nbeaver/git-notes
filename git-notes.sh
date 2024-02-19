@@ -29,6 +29,9 @@ get reset -p
 
 # See which files are in staging area
 git status
+# See untracked files.
+git status -u
+git status --untracked-files
 # See short summary of status, useful for scripts
 git status --porcelain
 # Include branch and remote information but still be short
