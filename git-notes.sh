@@ -32,7 +32,9 @@ git status
 # See short summary of status, useful for scripts
 git status --porcelain
 # Include branch and remote information but still be short
-git --short --branch
+git status --short --branch
+
+
 # See changes between the last commit and what is staged for a commit
 git diff --cached
 # See changes between the last commit and the working directory, regardless of whether or not they have been staged
