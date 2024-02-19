@@ -715,3 +715,5 @@ git branch -m master main
 git config core.fileMode false
 # Ignore file modes globally.
 git config --global core.fileMode false
+# Ignore file modes for a single command.
+git -c core.filemode=false status
