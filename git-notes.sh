@@ -717,3 +717,8 @@ git config core.fileMode false
 git config --global core.fileMode false
 # Ignore file modes for a single command.
 git -c core.filemode=false status
+
+# Show what files are setting all the configuration options,
+# very useful for debugging.
+git config --list --show-origin
+# https://stackoverflow.com/questions/12254076/how-do-i-show-my-global-git-configuration
