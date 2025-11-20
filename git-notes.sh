@@ -244,6 +244,14 @@ git remote set-url origin "https://github.com/nbeaver/name-of-repo.git"
 # Useful for messages like:
 # "fatal: remote origin already exists."
 
+# Troubleshoot SSH key authentication for git push.
+$ git push
+# ERROR: Permission to username/example-repo.git denied to username.
+# fatal: Could not read from remote repository.
+#
+# Please make sure you have the correct access rights
+# and the repository exists.
+
 # Show the url for a remote repository without logging in.
 git remote show -n origin
 # Show all about a remote repository without logging in.
