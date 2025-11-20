@@ -711,8 +711,8 @@ git tag --annotate v0.1 1a1212dd38a70f2ccc3690ce477f80c254256b7c
 # Check which tags contain a commit.
 git tag --contains 1a1212dd38a70f2ccc3690ce477f80c254256b7c
 
-git push --tags
 # Push the tags.
+git push --tags
 
 # Things to try in a repo with missing files / commits
 cat ../fresh/.git/objects/pack/pack-*.pack | git unpack-objects
