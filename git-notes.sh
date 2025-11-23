@@ -7,7 +7,7 @@
 # Just in case someone thinks this should be run as a shell command,
 # exit immediately.
 exit 1
-# Show what your global is.
+# Show the global configuration settings.
 git config --global --list
 # or
 less ~/.gitconfig
