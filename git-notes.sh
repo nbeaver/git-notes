@@ -735,3 +735,19 @@ git -c core.filemode=false status
 # very useful for debugging.
 git config --list --show-origin
 # https://stackoverflow.com/questions/12254076/how-do-i-show-my-global-git-configuration
+
+# Stash state of working directory for later.
+git stash push
+# Assign a name for the stash.
+git stash push -m "name_of_stash"
+# List the stashes.
+git stash list
+# Show a stash.
+git stash show
+# Apply a stash.
+git stash apply
+# https://git-scm.com/docs/git-stash
+# https://stackoverflow.com/questions/11260981/what-is-a-stash
+# https://stackoverflow.com/questions/11269256/how-do-i-name-and-retrieve-a-git-stash-by-name
+# https://www.atlassian.com/git/tutorials/saving-changes/git-stash
+# https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning
