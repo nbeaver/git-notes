@@ -383,6 +383,8 @@ git clone --config transfer.fsckobjects=false --config receive.fsckobjects=false
 git clean -f
 # Do a dry run first.
 git clean -fn
+# Remove untracked files in a directory.
+git clean -fd ./path/to/directory
 
 # Merge a single file in current branch from another
 # https://ochronus.com/git-tips-from-the-trenches/
