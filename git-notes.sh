@@ -250,6 +250,9 @@ git remote set-url origin "https://github.com/nbeaver/name-of-repo.git"
 # Useful for messages like:
 # "fatal: remote origin already exists."
 
+# Remove a remote URL.
+git remote set-url --delete --push all 'git@github.com:nbeaver/vim-old.git'
+
 # Troubleshoot SSH key authentication for git push.
 $ git push
 # ERROR: Permission to username/example-repo.git denied to username.
