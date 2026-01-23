@@ -762,3 +762,7 @@ git stash apply
 # https://stackoverflow.com/questions/11269256/how-do-i-name-and-retrieve-a-git-stash-by-name
 # https://www.atlassian.com/git/tutorials/saving-changes/git-stash
 # https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning
+
+# Set identity for just this repo.
+git config user.email "you@example.com"
+git config user.name "Your Name"
