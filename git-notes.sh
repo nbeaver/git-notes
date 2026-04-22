@@ -766,3 +766,10 @@ git stash apply
 # Set identity for just this repo.
 git config user.email "you@example.com"
 git config user.name "Your Name"
+
+# Pull from a remote while specifying branch.
+git pull origin mybranch
+# Avoids this error on 'git pull origin'
+# You asked to pull from the remote 'gitlab', but did not specify
+# a branch. Because this is not the default configured remote
+# for your current branch, you must specify a branch on the command line.
