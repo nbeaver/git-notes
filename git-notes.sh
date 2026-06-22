@@ -773,3 +773,8 @@ git pull origin mybranch
 # You asked to pull from the remote 'gitlab', but did not specify
 # a branch. Because this is not the default configured remote
 # for your current branch, you must specify a branch on the command line.
+
+# See files that are excluded from git but not in .gitignore,
+# for e.g. files that are unique to a particular machine.
+less .git/info/exclude
+# https://nelson.cloud/.gitignore-isnt-the-only-way-to-ignore-files-in-git/
